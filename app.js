@@ -7,7 +7,7 @@ const express = require("express"),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));      
 
-// const   accountRoutes = require('./routes/accountRoutes'),
+const   accountRoutes = require('./routes/accountRoutes');
 //         taskRoutes = require('./routes/taskRoutes');
 
 app.set('view engine','ejs')
@@ -28,9 +28,8 @@ app.get("/logout", (req,res) => {
 })
 
 // //routes
-// app.use("/account", accountRoutes);
+app.use("/account", accountRoutes);
 // app.use("/task", taskRoutes);
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
-
