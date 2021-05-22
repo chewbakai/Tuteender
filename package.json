@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "Tuteender is designed for a people who seek help and who wish to lend help. The idea was originally from our Web Development 1 Project and is recycled for the Application Development requirement as well. This time, I will be using Express framework in NodeJS and uses sequelize as an ORM to interface with PHP.",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0"
+  },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app"
   },
   "repository": {
     "type": "git",
