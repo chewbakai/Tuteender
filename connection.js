@@ -1,5 +1,5 @@
-const{Sequelize0, Sequelize} = require('sequelize');
-const sequelize = new Sequelize('tuteender', 'root', '', {
+const{Sequelize0, Sequelize} = require("sequelize");
+const sequelize = new Sequelize("tuteender", "root", "", {
     host:"localhost",
     dialect: "mysql",
     pool: {

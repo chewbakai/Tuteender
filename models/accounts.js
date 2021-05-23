@@ -1,23 +1,70 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class accounts extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+const {DataTypes} = require("sequelize");
+const db = require("../connection");
+
+const accounts = db.sequelize.define("accounts", {
+    id: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true
+      },
+    code:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      school: {
+        type: DataTypes.STRING
+      },
+      selectDegree: {
+        type: DataTypes.STRING
+      },
+      selectYear: {
+        type: DataTypes.STRING
+      },
+      course: {
+        type: DataTypes.STRING
+      },
+      accountType: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      password:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      password2:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+    password:{
+        type: DataTypes.STRING,
+        allowNull: false
+      }
+    },{
+        createdAt: true,
+        updatedAt: true,
+        deletedAt: true,
+        tableName: "accounts"
     }
-  };
-  accounts.init({
-    firstName: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'account',
-  });
-  return account;
-};
+)
+exports.model = accounts;

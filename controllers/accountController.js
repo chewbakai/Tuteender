@@ -1,4 +1,4 @@
-const account = require("../models/account");
+const account = require("../models/accounts");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -52,7 +52,7 @@ exports.loginAccount = async (req, res) => {
                 req.session.loggedIn = true;
                 req.session.username = data.username;
                 req.session.code= data.code;
-                res.redirect("/task");
+                res.redirect("/index");
             }else{
                 res.redirect("/");
             }
