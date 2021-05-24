@@ -12,12 +12,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       firstName: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       lastName: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       school: {
         type: Sequelize.STRING
@@ -32,24 +30,20 @@ module.exports = {
         type: Sequelize.STRING
       },
       accountType: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       userName: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       password:{
         type: Sequelize.STRING,
         allowNull: false
       },
       password2:{
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       createdAt: {
         type: Sequelize.DATE,

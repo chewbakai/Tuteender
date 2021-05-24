@@ -26,8 +26,17 @@ exports.createAccount = async (req, res) => {
     console.log("hatdog", hash)
    await account.model.create({
                 code: generateCode(),
+                firstname: req.body.firstName,
+                lastname: req.body.lastName,
+                school: req.body.school,
+                selectdegree: req.body.selectDegree,
+                selectyear: req.body.selectYear,
+                course: req.body.course,
+                accounttype: req.body.accountType,
+                email: req.body.email,
                 username: req.body.userName,
-                password: hash
+                password: hash,
+                pasword2: hash
     }).then(result => {
         if(result){
             res.redirect('/');
