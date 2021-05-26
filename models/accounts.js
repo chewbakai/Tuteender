@@ -27,40 +27,24 @@ const accounts = db.sequelize.define("accounts", {
         type: DataTypes.STRING
       },
       selectYear: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING  
       },
       course: {
         type: DataTypes.STRING
       },
       accountType: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       email: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
-      userName: {
-        type: DataTypes.STRING,
-        allowNull: false
+      username: {
+        type: DataTypes.STRING
       },
       password:{
         type: DataTypes.STRING,
         allowNull: false
       },
-      password2:{
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-    password:{
-        type: DataTypes.STRING,
-        allowNull: false
-      }
-    },{
         createdAt: true,
         updatedAt: true,
         deletedAt: true,

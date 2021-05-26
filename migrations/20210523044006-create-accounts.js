@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       selectYear: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING  
       },
       course: {
         type: Sequelize.STRING
@@ -35,15 +35,12 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      userName: {
+      username: {
         type: Sequelize.STRING
       },
       password:{
         type: Sequelize.STRING,
         allowNull: false
-      },
-      password2:{
-        type: Sequelize.STRING
       },
       createdAt: {
         type: Sequelize.DATE,

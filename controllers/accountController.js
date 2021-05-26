@@ -24,19 +24,18 @@ exports.createAccount = async (req, res) => {
     var hash = bcrypt.hashSync(req.body.password,salt);
     console.log("hatdog", salt)
     console.log("hatdog", hash)
-   await account.model.create({
+   await account.model.create({ 
                 code: generateCode(),
-                firstname: req.body.firstName,
-                lastname: req.body.lastName,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
                 school: req.body.school,
-                selectdegree: req.body.selectDegree,
-                selectyear: req.body.selectYear,
+                selectDegree: req.body.selectDegree,
+                selectYear: req.body.selectYear,
                 course: req.body.course,
-                accounttype: req.body.accountType,
+                accountType: req.body.accountType,
                 email: req.body.email,
                 username: req.body.userName,
-                password: hash,
-                pasword2: hash
+                password: hash
     }).then(result => {
         if(result){
             res.redirect('/');
@@ -61,7 +60,7 @@ exports.loginAccount = async (req, res) => {
                 req.session.loggedIn = true;
                 req.session.username = data.username;
                 req.session.code= data.code;
-                res.redirect("/index");
+                res.redirect("/homepage");
             }else{
                 res.redirect("/");
             }

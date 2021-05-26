@@ -21,6 +21,9 @@ app.use(session({
 app.get("/", (req,res) => {
     res.render("index");
 })
+app.get("/login", (req,res) => {
+    res.render("login");
+})
 
 app.get("/logout", (req,res) => {
     req.session.destroy();
