@@ -1,67 +1,5 @@
-<%- include('./partials/header.ejs') %> 
+<%- include('./partials/homeHeader.ejs') %> 
 <body>
-    <header class="header_area">
-      <div class="main_menu">
-        <div class="search_input" id="search_input_box">
-          <div class="container">
-            <form class="d-flex justify-content-between" action="/home/tutors_account" method="POST">
-              <input
-                type="text"
-                class="form-control"
-                id="search_input"
-                placeholder="Search Here"
-              />
-              <button type="submit" class="btn"></button>
-              <span
-                class="ti-close"
-                id="close_search"
-                title="Close Search"
-              ></span>
-            </form>
-          </div>
-        </div>
-
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-            <a class="navbar-brand logo_h" href="tutor.html"
-              ><img src="img/logoteender.png" alt=""
-            /></a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="icon-bar"></span> <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <div
-              class="collapse navbar-collapse offset"
-              id="navbarSupportedContent"
-            >
-              <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="tutor.html">Home</a>
-                </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="tuteeProfile.html">My Profile</a>
-                        </li> 
-                      <li class="nav-item">
-                  <a href="#" class="nav-link search" id="search">
-                    <i class="ti-search"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-
     <div class="popular_courses">
       <div class="container">
         <div class="row justify-content-center">
@@ -84,7 +22,7 @@
                   <div class="course_head">
                     <img class="img-fluid" src="img/courses/kai.jpg" alt="" />
                   </div>
-                  <div class="course_content">
+                   <div class="course_content">
                     <span class="price">+</span>
                     <span class="tag mb-4 d-inline-block">Information Technology</span>
                     <h4 class="mb-3">

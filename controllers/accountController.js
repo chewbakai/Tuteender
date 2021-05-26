@@ -60,7 +60,7 @@ exports.loginAccount = async (req, res) => {
                 req.session.loggedIn = true;
                 req.session.username = data.username;
                 req.session.code= data.code;
-                res.redirect("/homepage");
+                res.redirect("/tutor");
             }else{
                 res.redirect("/");
             }

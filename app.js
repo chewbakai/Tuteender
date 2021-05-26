@@ -1,14 +1,16 @@
 const express = require("express"),
-      app = express(),
-      session = require("express-session"),
-      http = require("http"),
-      server = http.createServer(app),
-      bodyParser = require("body-parser");
+    app = express(),
+    path = require('path'),
+    fileUpload = require('express-fileupload'),
+    session = require("express-session"),
+    http = require("http"),
+    server = http.createServer(app),
+    bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));      
 
-const   accountRoutes = require('./routes/accountRoutes');
-//         taskRoutes = require('./routes/taskRoutes');
+const   accountRoutes = require('./routes/accountRoutes'),
+        tutorRoutes = require('./routes/taskRoutes');
 
 app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'));
@@ -24,7 +26,7 @@ app.get("/", (req,res) => {
 app.get("/login", (req,res) => {
     res.render("login");
 })
-
+app.get('/profile/:id',routes.profile);
 app.get("/logout", (req,res) => {
     req.session.destroy();
     res.redirect('/');
@@ -32,7 +34,7 @@ app.get("/logout", (req,res) => {
 
 // //routes
 app.use("/account", accountRoutes);
-// app.use("/task", taskRoutes);
+app.use("/tutor", tutorRoutes);
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
