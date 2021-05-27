@@ -1,4 +1,5 @@
 const account = require("../models/accounts");
+
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -48,8 +49,9 @@ exports.createAccount = async (req, res) => {
 }
 
 exports.loginAccount = async (req, res) => {
+    console.log("yawa");
     let data = await account.model.findOne({where: {username: req.body.userName}});
-
+    console.log("yawa");
     if (data.username === null) {
         console.log('Not found!');
         res.redirect('/');
@@ -60,13 +62,13 @@ exports.loginAccount = async (req, res) => {
                 req.session.loggedIn = true;
                 req.session.username = data.username;
                 req.session.code= data.code;
-                res.redirect("/tutor");
+                res.redirect("/tutors/home");
             }else{
                 res.redirect("/");
             }
         });    
     }
 }
-exports.tutorAccount = function(req, res, next) {
-    res.send('NOT IMPLEMENTED: Site Home Page');
+exports.myAccount = (req,res) => {
+    res.render("profile");
 }

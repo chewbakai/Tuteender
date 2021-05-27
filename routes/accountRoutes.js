@@ -7,7 +7,7 @@ router.post("/create_account", accountController.createAccount);
 //router.get("/read_account", accountController.readAccount);
 router.get("/register_account", accountController.registerAccount);
 router.post("/login_account", accountController.loginAccount);
-router.post("/tutor_account", accountController.tutorAccount);
+router.post("/my_account", accountController.myAccount);
 
 module.exports = router;
     

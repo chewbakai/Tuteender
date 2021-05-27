@@ -9,8 +9,8 @@ const express = require("express"),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));      
 
-const   accountRoutes = require('./routes/accountRoutes'),
-        tutorRoutes = require('./routes/taskRoutes');
+const  accountRoutes = require('./routes/accountRoutes'),
+       tutorRoutes = require('./routes/tutorRoutes');
 
 app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'));
@@ -26,13 +26,22 @@ app.get("/", (req,res) => {
 app.get("/login", (req,res) => {
     res.render("login");
 })
-app.get('/profile/:id',routes.profile);
+// app.get('/profile/:id',routes.profile);
 app.get("/logout", (req,res) => {
     req.session.destroy();
     res.redirect('/');
 })
 
-// //routes
+app.get('/home', (req, res) => {
+	// if (req.session.loginAccount) {
+	// 	res.send('Welcome back, ' + req.session.username + '!');
+        res.render("home");
+	// } else {
+	// 	res.send('Please login to view this page!');
+	// }
+	// res.end();
+});
+//routes
 app.use("/account", accountRoutes);
 app.use("/tutor", tutorRoutes);
 
