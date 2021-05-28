@@ -48,7 +48,7 @@ const accounts = db.sequelize.define("accounts", {
         createdAt: true,
         updatedAt: true,
         deletedAt: true,
-        tableName: "accounts"
+       // tableName: "accounts"
     }
 )
 exports.model = accounts;

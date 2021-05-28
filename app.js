@@ -26,24 +26,23 @@ app.get("/", (req,res) => {
 app.get("/login", (req,res) => {
     res.render("login");
 })
-// app.get('/profile/:id',routes.profile);
+
 app.get("/logout", (req,res) => {
     req.session.destroy();
     res.redirect('/');
 })
 
 app.get('/home', (req, res) => {
-	// if (req.session.loginAccount) {
-	// 	res.send('Welcome back, ' + req.session.username + '!');
         res.render("home");
-	// } else {
-	// 	res.send('Please login to view this page!');
-	// }
-	// res.end();
 });
+
+app.get('/profile', (req, res) => {
+    res.render("profile");
+});
+
 //routes
 app.use("/account", accountRoutes);
-app.use("/tutor", tutorRoutes);
+//app.use("/tutor", tutorRoutes);
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
