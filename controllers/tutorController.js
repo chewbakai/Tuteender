@@ -1,4 +1,4 @@
-const task = require("../models/tutors");
+const tutors = require("../models/tutors");
 
 exports.getTutor = (req, res) =>{ 
    res.redirect("/");

@@ -2,19 +2,33 @@
 
 const tutors = require("../models/tutors");
 const accounts = require("../models/accounts");
+import 'sequelize-file';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('tutors', {
       
-      id: {
+      tutorId: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      tutorId: {
-        type: Sequelize.BIGINT
+      tutorName: {
+        type: Sequelize.STRING
+      },
+      picture: {
+          type: Sequelize.BLOB,
+          attribute: 'picture',
+          mimetype: /^image/,
+          crop: true,
+          sizes: {
+            small: 64, //width 64
+            big: 150, //width 150
+          }
+      },
+      tutorEmail: {
+        type: Sequelize.STRING
       },
       status: {
         type: Sequelize.STRING
@@ -40,9 +54,5 @@ module.exports = {
   }
 };
 
-tutors.associate = function (models){
-  tutors.belongsTo(models.accounts, {
-    foreignKey: 'tutorId',
-    targetKey:'id'
-  });
-}; 
+picture.addTo(tutors);
+export default tutors; 

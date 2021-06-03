@@ -1,34 +1,45 @@
-'use strict';
-const accounts = require("../models/accounts");
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class tutors extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+const {DataTypes} = require("sequelize");
+const db = require("../connection");
+// const picture = ("sequelize-file");
+
+const tutors = db.sequelize.define("tutors", {
+    tutorId: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true
+      },
+      tutorName:{
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      picture: {
+        type: DataTypes.BLOB,
+        attribute: 'picture',
+        mimetype: /^image/,
+        crop: true,
+        sizes: {
+          small: 64, //width 64
+          big: 150, //width 150
+        }
+      },
+      tutorEmail: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      status: {
+        type: DataTypes.STRING
+      },
+      rate: {
+        type: DataTypes.STRING
+      },
+      description: {
+        type: DataTypes.STRING  
+      },
+        createdAt: true,
+        updatedAt: true,
+        deletedAt: true,
     }
-  };
-  tutors.init({
-  
-    tutorId: DataTypes.BIGINT,
-    status: DataTypes.STRING,
-    rate: DataTypes.STRING,
-    description: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'tutors',
-  });
-  return tutors;
-};
-accounts.associate = function (models){
-  tutors.hasMany(models.accounts, {
-    foreignKey: 'tutorId',
-    sourceKey:'id'
-  });
-}; 
+)
+// picture.addTo(tutors);
+ exports.model = tutors;
