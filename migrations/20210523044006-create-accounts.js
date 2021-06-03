@@ -29,9 +29,6 @@ module.exports = {
       course: {
         type: Sequelize.STRING
       },
-      accountType: {
-        type: Sequelize.STRING
-      },
       email: {
         type: Sequelize.STRING
       },

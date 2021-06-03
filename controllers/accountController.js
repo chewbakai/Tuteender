@@ -41,7 +41,6 @@ exports.createAccount = async (req, res) => {
                 selectDegree: req.body.selectDegree,
                 selectYear: req.body.selectYear,
                 course: req.body.course,
-                accountType: req.body.accountType,
                 email: req.body.email,
                 username: req.body.userName,
                 password: hash
