@@ -47,6 +47,7 @@ exports.createAccount = async (req, res) => {
     }).then(result => {
         if(result){
             res.redirect('/home');
+    
         }
     }).catch(err => {
         console.log(err)
@@ -70,6 +71,7 @@ exports.loginAccount = async (req, res) => {
                 req.session.username = data.username;
                 req.session.code= data.code;
                 res.redirect("/home");
+                console.log("yawa");
             }else{
                 res.redirect("/");
             }

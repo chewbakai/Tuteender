@@ -8,41 +8,20 @@ const express = require("express"),
     bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));      
-
-const  accountRoutes = require('./routes/accountRoutes'),
-       tutorRoutes = require('./routes/tutorRoutes');
-       app.set('views', path.join(__dirname, 'views'));
+  
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'));
-app.use(session({
-    secret: "12345678",
-    resave: false,
-    saveUninitialized: false    
-}));
-
-app.get("/", (req,res) => {
-    res.render("index");
-})
-app.get("/login", (req,res) => {
-    res.render("login");
-})
-
-app.get("/logout", (req,res) => {
-    req.session.destroy();
-    res.redirect('/');
-})
-
-app.get('/home', (req, res) => {
-        res.render("home");
-});
-
-app.get('/profile', (req, res) => {
-    res.render("profile");
-});
-
+app.use(session({secret: "12345678", resave: false, saveUninitialized: false }));
 //routes
-app.use("/account", accountRoutes);
-app.use("/tutor", tutorRoutes);
+app.use("/account", require('./routes/accountRoutes'))
+app.use("/tutor", require('./routes/tutorRoutes'))
+   
+app.get("/", (req,res) => res.render("index"))
+app.get("/login", (req,res) => res.render("login"))
+app.get("/logout", (req,res) => {  req.session.destroy(); res.redirect('/');})
+app.get('/home', (req, res) => res.render("home"));
+app.get('/profile', (req, res) => res.render("profile"))
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
