@@ -10,11 +10,11 @@
                     </div>
                     <div class="content_wrapper">
                        
-                        <% var accounts %>
-                        <% if (accounts) { %>
+                    
                         <h4 class="title">Profile</h4>
                         <div class="content">
-                            <%= accounts.school %> </div>
+                            
+                            <% locals.school %> </div>
                     </div>
                 </div>
 
@@ -24,38 +24,36 @@
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p> Name</p>
-                                <span class="or"><%= accounts.firstName %><%= accounts.lastName %></span>
+                                <span class="or"><%- locals.firstName %><% locals.lastName %></span>
                             </a>
                         </li>
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p>Course </p>
-                                <span>Information Technology</span>
+                                <span><% locals.course %></span>
                             </a>
                         </li>
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p>Year </p>
-                                <span>2</span>
+                                <span><%- locals.selectYear %></span>
                             </a>
                         </li>
                         <li>
                             <a class="justify-content-between d-flex" href="#">
-                                <p>Age </p>
-                                <span>20</span>
+                                <p>Degree</p>
+                                <span><%- locals.selectDegree %></span>
                             </a>
                         </li>
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p>Status </p>
-                                <span>Tutee</span>
+                                <span><%- locals.accountType %></span>
                             </a>
                         </li>
                     </ul>
                     <a href="#" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Edit Profile</a>
-                   
-                   
-                    <% } %>
+                
           
                         </div>
                     </div>

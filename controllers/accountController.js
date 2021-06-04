@@ -1,6 +1,6 @@
-const account = require("../models/accounts");
-
+const accounts = require("../models/accounts");
 const bcrypt = require('bcrypt');
+const User = accounts.users;
 const saltRounds = 10;
 
 var generateCode = () => {
@@ -58,7 +58,7 @@ exports.createAccount = async (req, res) => {
 }      
 
 exports.loginAccount = async (req, res) => {
-    let data = await account.model.findOne({where: {username: req.body.userName}});
+    let data = await accounts.model.findOne({where: {username: req.body.userName}});
    
     if (data.username === null) {
         console.log('Not found!');
@@ -78,19 +78,25 @@ exports.loginAccount = async (req, res) => {
         });    
     }
 }
-exports.getAccount = (req, res) => {
-    req.session.accounts = accounts;
-    
-        res.render("profile", {
-            firstName: req.session.firstName,
-            lastName: req.session.lastName,
-            school: req.session.school,
-            selectDegree: req.session.selectDegree,
-            selectYear: req.session.selectYear,
-            course: req.session.course,
-            email: req.session.email   
-    });
-}
+exports.getAccount = (req, res, next) => {
+	User.findOne({
+		where: {
+			id: req.accounts.id,
+		},
+	})
+		.then((accounts) => {
+			res.render("profile", {
+				firstName: accounts.session.firstName,
+                lastName: accounts.session.lastName,
+                school: accounts.session.school,
+                selectDegree: accounts.session.selectDegree,
+                selectYear: accounts.session.selectYear,
+                course: accounts.session.course,
+                email: accounts.session.email 
+			});
+		})
+		.catch(next);
+};
 exports.updateAccount = async (req, res) => {
     let data = await account.model.update({
             password: "P@$$w0rd"

@@ -1,6 +1,6 @@
 const tutors = require("../models/tutors");
 
-exports.getTutor = (req, res) =>{ 
+exports.getTutor = async (req, res) =>{ 
     console.log("mas yawa");
     req.session.tutors= tutors;
         tutors.model.findAll();
