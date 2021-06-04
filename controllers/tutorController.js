@@ -1,7 +1,19 @@
 const tutors = require("../models/tutors");
 
 exports.getTutor = (req, res) =>{ 
-   res.redirect("/");
+    if(req.session.code){
+        tutors.model.findAll({
+            where:{ tutorId: req.session.code
+            }
+        }).then(tutors =>{
+            req.session.tutors = tutors;
+            if(tutors){
+                res.render("home",{tutorname: req.session.Name,code: req.session.code, tasks:req.session.tutors,loggedIn:req.session.loggedIn});
+            }
+        })
+    }else{
+        res.redirect("/");
+    }
 }
 
 exports.updateTutor = async (req, res) => {   

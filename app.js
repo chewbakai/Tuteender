@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 const  accountRoutes = require('./routes/accountRoutes'),
        tutorRoutes = require('./routes/tutorRoutes');
-
+       app.set('views', path.join(__dirname, 'views'));
 app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'));
 app.use(session({
@@ -42,7 +42,7 @@ app.get('/profile', (req, res) => {
 
 //routes
 app.use("/account", accountRoutes);
-//app.use("/tutor", tutorRoutes);
+app.use("/tutor", tutorRoutes);
 
 app.listen(8080);
 console.log('Server is listening on port 8080');

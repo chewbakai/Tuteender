@@ -5,16 +5,16 @@
             <div class="row">
                 <div class="col-lg-8 course_details_left">
                     <div class="main_image">
+                        
                         <img class="img-fluid" src="img/tutors/chu.jpg" alt="" width="300px" height="300px">
                     </div>
                     <div class="content_wrapper">
-                        <h4 class="title">Bio</h4>
+                       
+                        <% var accounts %>
+                        <% if (accounts) { %>
+                        <h4 class="title">Profile</h4>
                         <div class="content">
-                            
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                            magna aliqua. </div>
-                        
+                            <%= accounts.school %> </div>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                         <li>
                             <a class="justify-content-between d-flex" href="#">
                                 <p> Name</p>
-                                <span class="or">Marela Buagas</span>
+                                <span class="or"><%= accounts.firstName %><%= accounts.lastName %></span>
                             </a>
                         </li>
                         <li>
@@ -54,7 +54,9 @@
                     </ul>
                     <a href="#" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Edit Profile</a>
                    
-
+                   
+                    <% } %>
+          
                         </div>
                     </div>
                 </div>

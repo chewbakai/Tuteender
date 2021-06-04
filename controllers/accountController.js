@@ -76,10 +76,33 @@ exports.loginAccount = async (req, res) => {
         });    
     }
 }
-
-exports.updateAccount = async (acc, id) => {
-    var updateAccount = {
-        bio: account.bio
-    }
-    return account.update(updateAccount, { where: { id: id } });
+exports.getAccount = (req, res) => {
+    req.session.accounts = accounts;
+    
+        res.render("profile", {
+            firstName: req.session.firstName,
+            lastName: req.session.lastName,
+            school: req.session.school,
+            selectDegree: req.session.selectDegree,
+            selectYear: req.session.selectYear,
+            course: req.session.course,
+            email: req.session.email   
+    });
 }
+exports.updateAccount = async (req, res) => {
+    let data = await account.model.update({
+            password: "P@$$w0rd"
+        }, {
+        where: {
+            id: req.body.id
+        }
+        }
+    )
+    res.send(data);
+}
+// exports.updateAccount = async (acc, id) => {
+//     var updateAccount = {
+//         bio: account.bio
+//     }
+//     return account.update(updateAccount, { where: { id: id } });
+// }
