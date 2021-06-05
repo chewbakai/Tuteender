@@ -1,16 +1,11 @@
-<%- include('layouts/head.ejs')%>
-
+<%- include('./partials/homeHeader.ejs') %> 
     <body>
-        <%- include('layouts/navigation.ejs')%>
-            <!-- Page Content -->
             <div class="container">
                 <div class="row">
-                    <%- include('layouts/sidebar.ejs')%>
                         <div class="col-lg-9">
-                            <%- include('layouts/carousel.ejs')%>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <h2>Add Product</h2>
+                                        <h2>Add Tutorials</h2>
 
                                         <form action="/admin/add-tutor" method="POST">
                                             <div class="form-group">
@@ -37,4 +32,3 @@
                         </div>
                 </div>
             </div>
-<%- include('layouts/end.ejs')%>
