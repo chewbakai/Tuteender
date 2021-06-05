@@ -1,12 +1,13 @@
 const express = require("express");
-const router = express.Router();
+const path = require('path');
 const accountController = require("../controllers/accountController");
 
-router.get("/profile", accountController.getAccount);
-router.post("/create_account", accountController.createAccount);
+const router = express.Router();
+
 router.get("/register_account", accountController.registerAccount);
-router.post("/login_account", accountController.loginAccount);
-router.get("/update_account", accountController.updateAccount);
+router.post("/create_account", accountController.createAccount);
+router.post("/login", accountController.loginAccount);
+
 
 module.exports = router;
     

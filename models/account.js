@@ -1,7 +1,7 @@
 const {DataTypes} = require("sequelize");
 const db = require("../connection");
 
-const accounts = db.sequelize.define("accounts", {
+const account = db.sequelize.define("accounts", {
     id: {
         type: DataTypes.BIGINT,
         allowNull: false,
@@ -44,11 +44,11 @@ const accounts = db.sequelize.define("accounts", {
       password:{
         type: DataTypes.STRING,
         allowNull: false
-      },
+    },
         createdAt: true,
         updatedAt: true,
         deletedAt: true,
         //tableName: "accounts"
     }
 )
-exports.model = accounts;
+exports.model = account;

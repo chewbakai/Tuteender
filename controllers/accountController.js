@@ -1,4 +1,4 @@
-const accounts = require("../models/accounts");
+const accounts = require("../models/account");
 const bcrypt = require('bcrypt');
 const User = accounts.users;
 const saltRounds = 10;
@@ -12,28 +12,21 @@ var generateCode = () => {
     }
     return generate;
 }
-
-  //uses a regex to check if email is valid
 var isValidEmail = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-  }
-exports.registerAccount = (req,res) => {
-    res.render("create");
 }
 
+exports.registerAccount = (req,res) => { res.render("create");}
+
 exports.createAccount = async (req, res) => {
-    //console.log("Create an account");
-    //console.log(req.body);
     var salt = bcrypt.genSaltSync(saltRounds);
-    var hash = bcrypt.hashSync(req.body.password,salt);
-    
+    var hash = bcrypt.hashSync(req.body.password,salt);   
  
     if (!isValidEmail(req.body.email)) {
         return res.json({status: 'error', message: 'Email address not formed correctly.'});
-
     }
-      await account.model.create({ 
+      await accounts.model.create({ 
               code: generateCode(),
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
@@ -47,13 +40,11 @@ exports.createAccount = async (req, res) => {
     }).then(result => {
         if(result){
             res.redirect('/home');
-    
         }
     }).catch(err => {
         console.log(err)
         res.render("create",{err:"Error"})
-        return res.json({status: 'error', message: 'Email address already exists.'});
-        
+        return res.json({status: 'error', message: 'Email address already exists.'});   
      })
 }      
 
@@ -71,46 +62,39 @@ exports.loginAccount = async (req, res) => {
                 req.session.username = data.username;
                 req.session.code= data.code;
                 res.redirect("/home");
-                console.log("yawa");
             }else{
                 res.redirect("/");
-            }
+            } 
         });    
     }
 }
-exports.getAccount = (req, res, next) => {
-	User.findOne({
-		where: {
-			id: req.accounts.id,
-		},
-	})
-		.then((accounts) => {
-			res.render("profile", {
-				firstName: accounts.session.firstName,
-                lastName: accounts.session.lastName,
-                school: accounts.session.school,
-                selectDegree: accounts.session.selectDegree,
-                selectYear: accounts.session.selectYear,
-                course: accounts.session.course,
-                email: accounts.session.email 
-			});
-		})
-		.catch(next);
-};
-exports.updateAccount = async (req, res) => {
-    let data = await account.model.update({
-            password: "P@$$w0rd"
-        }, {
-        where: {
-            id: req.body.id
-        }
-        }
-    )
-    res.send(data);
-}
-// exports.updateAccount = async (acc, id) => {
-//     var updateAccount = {
-//         bio: account.bio
-//     }
-//     return account.update(updateAccount, { where: { id: id } });
+// exports.getAccount = (req, res, next) => {
+// 	User.findOne({
+// 		where: {
+// 			id: req.accounts.id,
+// 		},
+// 	})
+// 		.then((accounts) => {
+// 			res.render("profile", {
+// 				firstName: accounts.session.firstName,
+//                 lastName: accounts.session.lastName,
+//                 school: accounts.session.school,
+//                 selectDegree: accounts.session.selectDegree,
+//                 selectYear: accounts.session.selectYear,
+//                 course: accounts.session.course,
+//                 email: accounts.session.email 
+// 			});
+// 		})
+// 		.catch(next);
+// };
+// exports.updateAccount = async (req, res) => {
+//     let data = await account.model.update({
+//             password: "P@$$w0rd"
+//         }, {
+//         where: {
+//             id: req.body.id
+//         }
+//         }
+//     )
+//     res.send(data);
 // }

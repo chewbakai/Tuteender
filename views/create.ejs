@@ -1,10 +1,11 @@
 <%- include('./partials/header.ejs') %> 
 <body>
   <section>
-    <form action="/account/create_account" method="POST">
+    <form action="/create_account" method="POST">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+            
             <div class="row">
               <div class="col text-center">
                 <br><br><br>
@@ -20,16 +21,15 @@
               <div class="form-group col-md-6">
                 <input type="text" name="lastName" class="form-control" placeholder="Last Name" required>
               </div>
+            </div>
+             
+            <div class="row">
+              <div class="col text-center">
+                <input type="text" name="school" class="form-control" placeholder="School" required>
               </div>
+            </div><br>
              
-              <div class="row">
-                <div class="col text-center">
-                  <input type="text" name="school" class="form-control" placeholder="School" required>
-                </div>
-              </div> 
-              <br>
-             
-              <div class= "form-row">
+            <div class= "form-row">
                 <div class="form-group col-md-6">
                 <select class="form-control" name="selectDegree">
                 <optgroup label="Degree">
@@ -41,7 +41,6 @@
                 </optgroup>
                 </select>
               </div>
-            
               <div class="form-group col-md-6">
                 <select class="form-control" name="selectYear">
                 <optgroup label="Select Year">
@@ -63,25 +62,14 @@
                 <div class="col text-center">
                   <input type="text" name="course" class="form-control" placeholder="Course" required>
                 </div>
-            </div>
-            <br>
+            </div> <br>
 
-            <!-- <div class="form-row">
-              <div class="form-group col-md-12">
-                <select class="form-control" name="accountType">
-                <optgroup label="I want to be a">
-                  <option value="" disabled selected hidden>I want to be a</option> 
-                  <option name="tutee" value="1">Tutee</option>
-                  <option name="tutor" value="2">Tutor</option>
-                </optgroup>
-                </select>
-              </div>
-            </div> -->
             <div class="form-row">
               <div class="form-group col-md-12">
                 <input type="email" name="email" class="form-control" placeholder="Email" required>
               </div>
             </div>
+
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="userName" class="form-control" placeholder="Username" required>
@@ -96,6 +84,7 @@
                 <button type="submit" class="btn btn-primary btn-m btn-block">Register</button>
               </div>
             </div> 
+
         </div>
       </div>
       </form>

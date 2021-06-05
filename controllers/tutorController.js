@@ -1,50 +1,47 @@
-const tutors = require("../models/tutors");
+const Tutor = require("../models/tutor");
 
-exports.getTutor = async (req, res) =>{ 
-    console.log("mas yawa");
-    req.session.tutors= tutors;
-        tutors.model.findAll();
-                res.render("home",{
-                    tutorName: req.session.tutorName,
-                    tutorEmail: req.session.tutorEmail, 
-                    status:req.session.status,
-                    rate:req.session.rate,
-                    description:req.session.description
-            });
-}
-
-exports.updateTutor = async (req, res) => {   
-    if(req.session.code){
-        let result = await tutor.model.update({status:"available"} ,
-        {
-            where:{
-                id: req.query.id
-            }
-        })
-        if(!result){
-
-        }else{
-            res.redirect("/tutor");
-        }
-    }else{
-        res.redirect("/");
+exports.getAllTutors = async (req, res) => {
+    try{
+        // let tutors = await Tutor.findAll()
+        res.render("home", {
+        //     tutors,
+        //     id: req.session.id
+         })
+    }catch(err){
+        res.send(err)
     }
+};
+
+exports.getTutorDetail = (req, res, next) => {
+    Tutor.model.findById(req.params.prodId)
+        .then(tutor => {
+            res.render('tutor-detail', { prod: tutor, pageTitle: 'Tutor Detail', path: '/', name: 'Edward' });
+        })
+        .catch(err => console.log(err));
 }
 
-// exports.searchTutor = async (req, res) => {
-//     if(req.session.code){
-//         await task.model.destroy({
-//             where: {
-//                 id: req.query.tutorId
-//             }
-//         }).then(result => {
-//             if(result){
-//                 res.redirect("/tutor");
-//             }else{
-//                 res.redirect("/tutor");
-//             }
-//         })
-//     }else{
-//         res.redirect("/");
-//     }
-// }
+exports.addToCart = (req, res, next) => {
+    req.user.addToCart(req.body.id)
+        .then(() => {
+            res.redirect('/cart');
+        }).catch(err => console.log(err));
+}
+
+exports.getCart = (req, res, next) => {
+    req.user
+        .populate('cart.items.tutorId')
+        .execPopulate()
+        .then(user => {
+            console.log(user);
+            res.render('cart', { cart: user.cart, pageTitle: 'Shopping Cart Detail', path: '/cart', name: 'Edward' });
+        })
+        .catch(err => console.log(err));
+}
+
+exports.deleteInCart = (req, res, next) => {
+    req.user.removeFromCart(req.body.prodId)
+        .then(() => {
+            res.redirect('/cart');
+        }).catch(err => console.log(err));
+
+}

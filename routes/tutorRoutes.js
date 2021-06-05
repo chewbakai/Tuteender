@@ -1,11 +1,16 @@
 const express = require("express");
-const router = express.Router();
+const path = require('path');
 const tutorController = require("../controllers/tutorController");
 
-router.post("/tutor", tutorController.getTutor);
-// router.get("/return_tutor", tutorController.returnTutor);
-// router.post("/profile_tutor", tutorController.profileTutor);
-// router.post("/update_tutor", tutorController.updateTutor);
-// router.get("/search_tutor", tutorController.searchTutor);
+const router = express.Router();
+
+router.get('/home', tutorController.getAllTutors);
+router.get('/tutors/:prodId', tutorController.getTutorDetail);
+router.post('/add-to-cart', tutorController.addToCart);
+router.get('/cart', tutorController.getCart);
+router.post('/delete-cart', tutorController.deleteInCart);
+router.get('/error-demo', (req, res, next) => {
+    throw new Error('This is to test Error handling in express');
+});
 
 module.exports = router;
