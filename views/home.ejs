@@ -20,35 +20,35 @@
           <div class="row">
             <div class="col-lg-12">
                 <div class="owl-carousel active_course">
-
+                  <% tutors.forEach(tutor => { %>
                   <div class="single_course">
                     <div class="course_head">
-                        <a href="#"><img class="img-fluid"src="img/tutors/uwu.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid"src="<%= tutor.picture%>" alt=""></a>
                     </div>
                     <div class="course_content">
                       <span class="rate">+</span>
-                      <span class="tag mb-4 d-inline-block">Php Rate</span>
+                      <span class="tag mb-4 d-inline-block"><%= tutor.rate %></span>
                       <h4 class="mb-3">  
-                        <a href="/tutors/id"> Tutorial Title</a></h4>
+                        <a href="/tutors/<%= tutor._id %>"><%= tutor.title %></a></h4>
                       </h4>
-                      <p> {tutorial description}</p>
+                      <p> <%= tutor.description %> </p>
                       <div
                       class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                       <!-- <a href="https://www.facebook.com/kyrahceniza"><i class="ti-menu"></i></a> -->
-                      <a href="/tutors/id"role="button"><i class="ti-menu"></i> View Details</a>
-                                <!-- <a class="btn btn-primary" href="/admin/edit-tutor/id" role="button">Edit</a> -->
-                                <form action="/admin/delete-tutor" method="POST">
-                                  <input type="hidden" name="id" value="id">
-                                  <!-- <button type="submit" class="btn btn-primary">Delete</button> -->
-                                </form>
+                      <a href="/tutors/<%= tutor._id %>"role="button"><i class="ti-menu"></i> View Details</a>
+                                <!-- <a class="btn btn-primary" href="/admin/edit-tutor/<%=tutor._id%>" role="button">Edit</a> -->
+                                <!-- <form action="/admin/delete-tutor" method="POST">
+                                  <input type="hidden" name="id" value="<%=tutor._id%>>
+                                  <button type="submit" class="btn btn-primary">Delete</button>
+                                </form> -->
                                 <form action="/add-to-cart" method="POST">
-                                    <input type="hidden" name="id" value="id">
-                                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                    <input type="hidden" name="id" value="<%= tutor._id %>id">
+                                    <button type="submit" class="btn btn-primary"><i class="ti-plus"></i> Add to Cart</button>
                                 </form>
                       </div>
                     </div>
                   </div>
-
+                  <% }) %>
                 </div>
               </div>
             </div>
