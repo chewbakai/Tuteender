@@ -1,15 +1,11 @@
 const Tutor = require("../models/tutor");
 
-exports.getAllTutors = async (req, res) => {
-    try{
-        // let tutors = await Tutor.findAll()
-        res.render("home", {
-        //     tutors,
-        //     id: req.session.id
-         })
-    }catch(err){
-        res.send(err)
-    }
+exports.getAllTutors = async(req, res, next) => {
+    Tutor.model.findAll()
+        .then(tutors => {
+            res.render('home', { tutors, path: '/' });
+        })
+        .catch(err => console.log(err));
 };
 
 exports.getTutorDetail = (req, res, next) => {
