@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/register_account", accountController.registerAccount);
 router.post("/create_account", accountController.createAccount);
 router.post("/login", accountController.loginAccount);
-
+router.get("/myprofile", accountController.myAccount);
 
 module.exports = router;
     

@@ -1,7 +1,8 @@
 const accounts = require("../models/account");
 const bcrypt = require('bcrypt');
-const User = accounts.users;
+
 const saltRounds = 10;
+
 
 var generateCode = () => {
     let generate = "";
@@ -68,25 +69,14 @@ exports.loginAccount = async (req, res) => {
         });    
     }
 }
-// exports.getAccount = (req, res, next) => {
-// 	User.findOne({
-// 		where: {
-// 			id: req.accounts.id,
-// 		},
-// 	})
-// 		.then((accounts) => {
-// 			res.render("profile", {
-// 				firstName: accounts.session.firstName,
-//                 lastName: accounts.session.lastName,
-//                 school: accounts.session.school,
-//                 selectDegree: accounts.session.selectDegree,
-//                 selectYear: accounts.session.selectYear,
-//                 course: accounts.session.course,
-//                 email: accounts.session.email 
-// 			});
-// 		})
-// 		.catch(next);
-// };
+exports.myAccount = async(req, res, next) => {
+    console.log("yawa");
+	accounts.model.findAll()
+    .then(accounts => {
+        res.render('accountProfile', { accounts, path: '/myprofile' });
+    })
+    .catch(err => console.log(err));
+};
 // exports.updateAccount = async (req, res) => {
 //     let data = await account.model.update({
 //             password: "P@$$w0rd"

@@ -1,0 +1,62 @@
+<%- include('./partials/homeHeader.ejs') %> 
+<!-- <form action="/myprofile" method="POST"> -->
+<section class="course_details_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 course_details_left">
+                <% accounts.forEach(account => { %>
+                <div class="main_image">
+                    <img class="img-fluid" src="img/tutors/kai.jpg" alt="" width="300px" height="300px">
+                </div>              
+                <div class="content_wrapper">
+                    <h4 class="title">My Profile</h4> 
+                </div> 
+                <div class="content">
+                        
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore
+                    magna aliqua. 
+                </div>
+            </div>                                                  
+                    <div class="col-lg-5 right-contents">
+                        <ul>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p> Name</p>
+                                    <span class="or"><%= account.firstName %> <%= account.lastName %></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p> Username</p>
+                                    <span class="or"><%= account.username %> </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>Course </p>
+                                    <span class="or"><%= account.course %></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>Year </p>
+                                    <span class="or"><%= account.year %></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="justify-content-between d-flex" href="#">
+                                    <p>School</p>
+                                    <span class="or"> <%= account.school %></span>
+                                </a>
+                            </li>
+                        
+                            <% }) %>
+                        </ul>
+                        <a href="#" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Edit Profile</a>
+                    </div>  
+                </div>
+            </div>       
+        </div>
+    </div>
+</section>
