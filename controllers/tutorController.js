@@ -24,6 +24,7 @@ exports.addToCart = (req, res, next) => {
 }
 
 exports.getCart = (req, res, next) => {
+    Tutor.model.findById(req.params.id)
     req.user
         .populate('cart.items.id')
         .then(user => {
