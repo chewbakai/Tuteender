@@ -6,7 +6,6 @@ const adminController = require('../controllers/adminController');
 
 const router = express.Router();
 
-
 router.get('/add-tutor', adminController.getTutorForm);
 router.post('/add-tutor', adminController.postTutor);
 router.get('/edit-tutor/:prodId', adminController.editTutorPage);

@@ -9,9 +9,9 @@ exports.getAllTutors = async(req, res, next) => {
 };
 
 exports.getTutorDetail = (req, res, next) => {
-    Tutor.model.findById(req.params.id)
-        .then(tutor => {
-            res.render('tutor-detail', { tutor: tutors, pageTitle: 'Tutor Detail', path: '/' });
+    Tutor.model.findByPk(req.params.id)
+        .then(tutors => {
+            res.render('tutor-detail', { tutors, pageTitle: 'Tutor Detail', path: '/' });
         })
         .catch(err => console.log(err));
 }
@@ -23,13 +23,13 @@ exports.addToCart = (req, res, next) => {
         }).catch(err => console.log(err));
 }
 
-exports.getCart = (req, res, next) => {
-    Tutor.model.findById(req.params.id)
-    req.user
-        .populate('cart.items.id')
+exports.getCart = async (req, res, next) => {
+    Tutor.model.findByPk(req.params.id)
+    //req.user
+        //.populate('cart.items.id')
         .then(user => {
             console.log(user);
-            res.render('cart', { cart: user.cart, pageTitle: 'Shopping Cart Detail', path: '/cart'});
+            res.render('cart', { cart: Tutor.cart, pageTitle: 'Shopping Cart Detail', path: '/cart'});
         })
         .catch(err => console.log(err));
 }

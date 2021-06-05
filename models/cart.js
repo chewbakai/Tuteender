@@ -24,7 +24,7 @@ module.exports = class Cart {
         return cart;
     }
 
-    static delete(productId) {
+    static delete(tutorId) {
         const isExisting = cart.tutors.findIndex(p => p.id == productId);
         if (isExisting >= 0) {
             cart.tutors.splice(isExisting, 1);

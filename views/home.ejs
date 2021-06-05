@@ -23,25 +23,25 @@
                   <% tutors.forEach(tutor => { %>
                   <div class="single_course">
                     <div class="course_head">
-                        <a href="#"><img class="img-fluid" src="img/features/f2.png" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="<%= tutor.picture %>" alt=""></a>
                     </div>
                     <div class="course_content">
                       <span class="tag mb-4 d-inline-block">Php <%= tutor.rate %></span>
                       <h4 class="mb-3">  
-                        <a href="/tutors/<%= tutor._id %>"><%= tutor.title %></a></h4>
+                        <a href="/tutors/<%= tutor.id %>"><%= tutor.title %></a></h4>
                       </h4>
                       <p> <%= tutor.description %> </p>
                       <div
                       class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4">
                       <!-- <a href="https://www.facebook.com/kyrahceniza"><i class="ti-menu"></i></a> -->
-                      <a href="/tutors/<%= tutor._id %>"role="button"><i class="ti-menu"></i> View Details</a>
+                      <a href="/tutors/<%= tutor.id %>"role="button"><i class="ti-menu"></i> View Details</a>
                                 <!-- <a class="btn btn-primary" href="/admin/edit-tutor/<%=tutor._id%>" role="button">Edit</a> -->
                                 <!-- <form action="/admin/delete-tutor" method="POST">
                                   <input type="hidden" name="id" value="<%=tutor._id%>>
                                   <button type="submit" class="btn btn-primary">Delete</button>
                                 </form> -->
                                 <form action="/add-to-cart" method="POST">
-                                    <input type="hidden" name="id" value="<%= tutor._id %>id">
+                                    <input type="hidden" name="id" value="<%= tutor.id %>id">
                                     <button type="submit" class="btn btn-primary"><i class="ti-plus"></i> Add to Cart</button>
                                 </form>
                       </div>

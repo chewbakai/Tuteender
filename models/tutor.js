@@ -8,25 +8,18 @@ const tutor = db.sequelize.define("tutors", {
         allowNull: false
       },
       picture: {
-        type: DataTypes.BLOB,
-        attribute: 'picture',
-        mimetype: /^image/,
-        crop: true,
-        sizes: {
-          small: 64, //width 64
-          big: 150, //width 150
-        }
+        type: DataTypes.STRING
       },
       rate: {
         type: DataTypes.STRING
       },
       description: {
         type: DataTypes.STRING  
-      },
+      // },
       // cart: {
       //   items: [{
       //       tutorId: {
-      //         type: db.findById,
+      //         type: db.findByPk,
       //           ref: 'Tutor',
       //           required: true
       //       },
@@ -36,6 +29,7 @@ const tutor = db.sequelize.define("tutors", {
       //       }
       //   }],
       //   totalRate: Number
+      },
         createdAt: false,
         updatedAt: false,
         deletedAt: false

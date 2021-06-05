@@ -12,14 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       picture: {
-        type: Sequelize.BLOB,
-        attribute: 'picture',
-        mimetype: /^image/,
-        crop: true,
-        sizes: {
-          small: 64, //width 64
-          big: 150, //width 150
-        }
+        type: Sequelize.STRING
     },
     rate: {
       type: Sequelize.STRING
