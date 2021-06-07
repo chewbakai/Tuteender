@@ -9,7 +9,7 @@ exports.getAllTutors = async(req, res, next) => {
 };
 
 exports.getTutorDetail = async (req, res, next) => {
-    Tutor.model.findAll({ limit: 1 })
+    Tutor.model.findAll({ limit: 1})
         .then(tutors => {
             res.render('tutor-detail', { tutors, pageTitle: 'Tutor Detail', path: '/' });
         })
