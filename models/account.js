@@ -12,6 +12,9 @@ const account = db.sequelize.define("accounts", {
         type: DataTypes.STRING,
         allowNull: false
       },
+      picture: {
+        type: DataTypes.STRING
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -30,9 +33,6 @@ const account = db.sequelize.define("accounts", {
         type: DataTypes.STRING  
       },
       course: {
-        type: DataTypes.STRING
-      },
-      accountType: {
         type: DataTypes.STRING
       },
       email: {

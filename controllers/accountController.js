@@ -29,6 +29,7 @@ exports.createAccount = async (req, res) => {
     }
       await accounts.model.create({ 
               code: generateCode(),
+                picture: req.body.picture,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 school: req.body.school,
@@ -70,8 +71,7 @@ exports.loginAccount = async (req, res) => {
     }
 }
 exports.myAccount = async(req, res, next) => {
-    console.log("yawa");
-	accounts.model.findAll()
+	accounts.model.findAll({ limit: 1 })
     .then(accounts => {
         res.render('accountProfile', { accounts, path: '/myprofile' });
     })

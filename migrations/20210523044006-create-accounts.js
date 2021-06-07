@@ -11,14 +11,21 @@ module.exports = {
       code: {
         type: Sequelize.STRING
       },
+      picture: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       school: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       selectDegree: {
         type: Sequelize.STRING
@@ -30,10 +37,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       password:{
         type: Sequelize.STRING,
