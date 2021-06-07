@@ -8,8 +8,8 @@ exports.getAllTutors = async(req, res, next) => {
         .catch(err => console.log(err));
 };
 
-exports.getTutorDetail = (req, res, next) => {
-    Tutor.model.findByPk(req.params.id)
+exports.getTutorDetail = async (req, res, next) => {
+    Tutor.model.findAll()
         .then(tutors => {
             res.render('tutor-detail', { tutors, pageTitle: 'Tutor Detail', path: '/' });
         })

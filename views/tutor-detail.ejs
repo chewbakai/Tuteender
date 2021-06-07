@@ -1,20 +1,31 @@
 <%- include('./partials/homeHeader.ejs') %> 
 
 <body>
+    <section> 
     <div class="container">
-        <div class="row">
-            <div class="col-lg-9">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6">
                 <div class="row">
-                    <div class="col-sm-12">
-                    <% tutors.forEach(tutor => { %>
-                    <h1> <%= tutor.title %> </h1>
-                    <p><img src="<%= tutors.imageURL%>" /></p>
-                    <p>Rate: <%= tutor.rate %></p>
-                    <p>Description: <%= tutor.description %></p>
-                    <br>
-                    <% }) %>
+                    <div class="col text-center"><br> <br><br>
+                        <% tutors.forEach(tutor => { %>
+                        <h1> <%= tutor.title %> </h1>
+                        <p class="text-h3">Tutor Details </p>
                     </div>
-                </div>               
-            </div>
-         </div>
-     </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <p><img src="<%= tutors.imageURL%>" /></p>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <p>Rate: <%= tutor.rate %></p>
+                    </div>
+                    <div class="form-group col-md-12"></div>
+                        <p>Description: <%= tutor.description %></p>
+                    </div><br>
+                    <% }) %>
+                </div>
+            </div>               
+        </div>
+    </div>
+    </section>
+</body>
