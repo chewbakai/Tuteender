@@ -1,22 +1,23 @@
 <%- include('./partials/homeHeader.ejs') %> 
 <!-- <form action="/myprofile" method="POST"> -->
+
 <section class="course_details_area section_gap">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 course_details_left">
                 <% accounts.forEach(account => { %>
                 <div class="main_image">
-                    <img class="img-fluid" src="img/tutors/kai.jpg" alt="" width="300px" height="300px">
+                    <img class="img-fluid" src="<%= account.picture %>" alt="" width="300px" height="300px">
                 </div>              
                 <div class="content_wrapper">
                     <h4 class="title">My Profile</h4> 
                 </div> 
-                <div class="content">
+                <!-- <div class="content">
                         
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore
                     magna aliqua. 
-                </div>
+                </div> -->
             </div>                                                  
                     <div class="col-lg-5 right-contents">
                         <ul>
@@ -41,7 +42,7 @@
                             <li>
                                 <a class="justify-content-between d-flex" href="#">
                                     <p>Year </p>
-                                    <span class="or"><%= account.year %></span>
+                                    <span class="or"><%= account.selectYear %></span>
                                 </a>
                             </li>
                             <li>
@@ -53,10 +54,44 @@
                         
                             <% }) %>
                         </ul>
-                        <a href="#" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Edit Profile</a>
+                        <a href="/myprofile" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Edit Profile</a>
+                        <!-- <a href="#" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Edit Profile</a> -->
                     </div>  
                 </div>
             </div>       
         </div>
     </div>
 </section>
+
+<!-- <div class="modal" tabindex="-1" id="editModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Account</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="" method="post" id="edit-form" class="d-flex flex-column">
+                <input type="text" id="edit-account" class="form-control" name="title"></p>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary ">
+                        Edit
+                    </button>
+                </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<script>
+    document.querySelectorAll(".edit-task").forEach(btn => {
+        btn.addEventListener("click",(event) => {
+            const taskId = event.target.getAttribute('id') || event.target.parentElement.getAttribute('id')
+            console.log(taskId)
+            var text = document.getElementById("task-title-"+taskId).innerText
+            document.getElementById("edit-task").value = text
+            document.getElementById("edit-form").action = `/tasks/${taskId}/edit`
+        })
+    });
+</script> -->

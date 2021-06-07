@@ -1,18 +1,15 @@
-<%- include('layouts/head.ejs')%>
+<%- include('./partials/homeHeader.ejs') %> 
     <body>
-        <%- include('layouts/navigation.ejs')%>
             <!-- Page Content -->
             <div class="container">
                 <div class="row">
-                    <%- include('layouts/sidebar.ejs')%>
                         <div class="col-lg-9">
-                            <%- include('layouts/carousel.ejs')%>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <h2>Add Product</h2>
+                                        <h2>Add Tutorials</h2>
 
                                         <form action="/admin/edit-tutor" method="POST">
-                                            <input type="hidden" name="id" value="<%= tutor._id%>">
+                                            <input type="hidden" name="id" value="<%= tutor.id%>">
                                             <div class="form-group">
                                                 <label for="title">Title</label>
                                                 <input class="form-control" id="title" name="title" value="<%= tutor.title%>">
@@ -38,4 +35,3 @@
                         </div>
                 </div>
             </div>
- <%- include('layouts/end.ejs')%>

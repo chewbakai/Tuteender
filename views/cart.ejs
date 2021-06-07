@@ -7,9 +7,9 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <% var cart.items.length %>
-                                    <% if (cart === null || cart.items.length == 0) {%>
+                                    <% if (cart === null || cart.items.length == 0) { %>
                                         <h2>No item in shopping Cart</h2>
-                                        <%} else {%>
+                                        <% } else { %>
                                             <h2>Shopping Cart Detail</h2>
                                             <table class="table">
                                                 <thead>
@@ -37,14 +37,14 @@
                                                                 </form>
                                                             </td>
                                                         </tr>
-                                                        <%}%>
+                                                        <% } %>
                                                             <tr>
                                                                 <td>Total Rate: </td>
                                                                 <td colspan="4"><%= cart.totalRate%> </td>
                                                             </tr>
                                                 </tbody>
                                             </table>
-                                            <%}%><br>
+                                            <% } %><br>
                                 </div>
                             </div>
                     </div>
