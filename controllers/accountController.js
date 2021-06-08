@@ -74,7 +74,7 @@ exports.myAccount = async(req, res, next) => {
 	const id = 2
      accounts.model.findAll({
          where: {
-             id: 
+             id: id
          }
      })
     .then(accounts => {
