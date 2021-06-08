@@ -71,20 +71,32 @@ exports.loginAccount = async (req, res) => {
     }
 }
 exports.myAccount = async(req, res, next) => {
-	accounts.model.findAll({ limit: 1 })
+	const id = 2
+     accounts.model.findAll({
+         where: {
+             id: 
+         }
+     })
     .then(accounts => {
         res.render('accountProfile', { accounts, path: '/myprofile' });
+        console.log("id",id);
     })
     .catch(err => console.log(err));
 };
 // exports.updateAccount = async (req, res) => {
-//     let data = await account.model.update({
-//             password: "P@$$w0rd"
-//         }, {
-//         where: {
-//             id: req.body.id
-//         }
-//         }
-//     )
-//     res.send(data);
+//     const id = req.params.id;
+//     accounts.model.findAll(id)
+//             .then((result)=>{
+//                 result.firstname = updatedName;
+//                 result.lastname = updatedLastname;
+//                 result.course = updatedcourse;
+//                 result.school = updatedschool;
+//                 return result.save()
+//             })
+//             .then((result)=>{
+//                     console.log("the data was Updated");
+//                 })
+//             .catch((err)=>{
+//                 console.log("Error : ",err)
+//             });
 // }

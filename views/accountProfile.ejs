@@ -85,13 +85,13 @@
     </div>
   </div>
 <script>
-    document.querySelectorAll(".edit-task").forEach(btn => {
+    document.querySelectorAll(".edit-account").forEach(btn => {
         btn.addEventListener("click",(event) => {
-            const taskId = event.target.getAttribute('id') || event.target.parentElement.getAttribute('id')
-            console.log(taskId)
-            var text = document.getElementById("task-title-"+taskId).innerText
-            document.getElementById("edit-task").value = text
-            document.getElementById("edit-form").action = `/tasks/${taskId}/edit`
+            const id = event.target.getAttribute('id') || event.target.parentElement.getAttribute('id')
+            console.log(id)
+            var text = document.getElementById("account-firstName-"+taskId).innerText
+            document.getElementById("edit-account").value = text
+            document.getElementById("edit-account").action = `/account/${taskId}/edit`
         })
     });
 </script> -->

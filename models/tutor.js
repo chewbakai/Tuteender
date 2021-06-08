@@ -3,12 +3,12 @@ const db = require("../connection");
 // const picture = ("sequelize-file");
 
 const tutor = db.sequelize.define("tutors", {
-  id: {
-    type: DataTypes.BIGINT,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true
-  },
+      id: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true
+      },
       title:{
         type: DataTypes.STRING,
         allowNull: false

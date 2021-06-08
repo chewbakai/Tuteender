@@ -9,9 +9,13 @@ exports.getAllTutors = async(req, res, next) => {
 };
 
 exports.getTutorDetail = async (req, res, next) => {
-    Tutor.model.findAll({ limit: 1})
+    const title = req.params.title;
+    Tutor.model.findAll( { where : {
+        title:title }
+    })
         .then(tutors => {
-            res.render('tutor-detail', { tutors, pageTitle: 'Tutor Detail', path: '/' });
+            res.render('tutor-detail', { tutors , pageTitle: 'Tutor Detail', path: '/' });
+            console.log("title", title);
         })
         .catch(err => console.log(err));
 }
