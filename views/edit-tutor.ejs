@@ -9,27 +9,30 @@
                                         <h2>Edit Tutorials</h2>
 
                                         <form action="/tutor/:id" method="POST">
-                                       
+                                        
+                                            <% for(let i = 0;i < tutors.id ; i++) { %>
                                             <input type="hidden" name="id" value="id">
                                             <div class="form-group">
                                                 <label for="title">Title</label>
-                                                <input class="form-control" id="title" name="title" value="title">
+                                                <input class="form-control" id="title" name="title" value=""> <%= tutors[i].title %>
                                             </div>
                                             <div class="form-group">
                                                 <label for="rate">Rate</label>
-                                                <input class="form-control" id="rate" name="rate" value="rate">
+                                                <input class="form-control" id="rate" name="rate" value=""><%= tutors[i].rate  %>
                                             </div>
                                             <div class="form-group">
                                                 <label for="imageURL">Picture</label>
-                                                <input class="form-control" id="picture" name="picture" value="picture">
+                                                <input class="form-control" id="picture" name="picture" value=""> <%= tutors[i].picture %>
                                             </div>
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea class="form-control" name="description" id="description">description</textarea>
+                                                <textarea class="form-control" name="description" id="description"><%= tutors[i].description %></textarea>
                                             </div>
-                                       
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            <a href="/:id" class="primary-btn2 mb-3 mb-sm-0">Delete Tutorial</a></i></button>
+                                            <div class= col text-left>
+                                            <button type="submit" class="primary-btn ml-sm-3 ml-0">Submit</button>
+                                            <button type="submit" class="primary-btn2 mb-3 mb-sm-0" value="<%=tutors[i].id %>">Delete Tutorial</a></i></button>
+                                            <% } %>
+                                            </div>
                                         </form>
                                         <br>
                                     </div>

@@ -71,7 +71,8 @@ exports.loginAccount = async (req, res) => {
     }
 }
 exports.myAccount = async(req, res, next) => {
-	const id = 2;
+	const id = 6; //req.params.id does not work with this case idk 
+    // change to updated id for new account
      accounts.model.findAll({ 
          where: {
              id: id
@@ -83,6 +84,7 @@ exports.myAccount = async(req, res, next) => {
     })
     .catch(err => console.log(err));
 };
+
 exports.updateAccount = async (req, res) => {
     let data = await accounts.model.update({
             password: "P@$$w0rd"
