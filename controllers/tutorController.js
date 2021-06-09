@@ -53,32 +53,32 @@ exports.getTutorDetail = async (req, res, next) => {
         message: "Error retrieving Tutor with id=" + id });
     });
 }
+// --- not implemented changed of plans but in the future ----
+// exports.addToCart = (req, res, next) => {
+//     req.user.addToCart(req.body.id)
+//         .then(() => {
+//             res.redirect('/cart');
+//         }).catch(err => console.log(err));
+// }
 
-exports.addToCart = (req, res, next) => {
-    req.user.addToCart(req.body.id)
-        .then(() => {
-            res.redirect('/cart');
-        }).catch(err => console.log(err));
-}
+// exports.getCart = async (req, res, next) => {
+//     Tutor.model.findByPk(req.params.id)
+//     //req.user
+//         //.populate('cart.items.id')
+//         .then(user => {
+//             console.log(user);
+//             res.render('cart', { cart: Tutor.cart, pageTitle: 'Shopping Cart Detail', path: '/cart'});
+//         })
+//         .catch(err => console.log(err));
+// }
 
-exports.getCart = async (req, res, next) => {
-    Tutor.model.findByPk(req.params.id)
-    //req.user
-        //.populate('cart.items.id')
-        .then(user => {
-            console.log(user);
-            res.render('cart', { cart: Tutor.cart, pageTitle: 'Shopping Cart Detail', path: '/cart'});
-        })
-        .catch(err => console.log(err));
-}
-
-exports.deleteInCart = (req, res, next) => {
-    req.user.removeFromCart(req.body.prodId)
-        .then(() => {
-            res.redirect('/cart');
-        }).catch(err => console.log(err));
-
-}
+// exports.deleteInCart = (req, res, next) => {
+//     req.user.removeFromCart(req.body.prodId)
+//         .then(() => {
+//             res.redirect('/cart');
+//         }).catch(err => console.log(err));
+// --------------------
+// }
 // Update a Tutor by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;

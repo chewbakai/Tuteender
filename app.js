@@ -21,7 +21,9 @@ const tutorRoutes = require('./routes/tutorRoutes');
 app.get("/", (req,res) => res.render("index"))
 app.get("/login", (req,res) => res.render("login"))
 app.get("/logout", (req,res) => {  req.session.destroy(); res.redirect('/');})
+// i just had to hsdgh for testing purpose only but hfhag
 app.get("/add-tutor", (req,res) => res.render("add-tutor"))
+app.get("/tutor/:id", (req,res) => res.render("edit-tutor"))
 
 app.use(accountRoutes)
 app.use(tutorRoutes) 

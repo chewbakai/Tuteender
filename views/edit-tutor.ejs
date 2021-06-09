@@ -5,28 +5,31 @@
                 <div class="row">
                         <div class="col-lg-9">
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <h2>Add Tutorials</h2>
+                                    <div class="col-sm-12"><br><br><br><br>
+                                        <h2>Edit Tutorials</h2>
 
-                                        <form action="/admin/edit-tutor" method="POST">
-                                            <input type="hidden" name="id" value="<%= tutor.id%>">
+                                        <form action="/tutor/:id" method="POST">
+                                       
+                                            <input type="hidden" name="id" value="id">
                                             <div class="form-group">
                                                 <label for="title">Title</label>
-                                                <input class="form-control" id="title" name="title" value="<%= tutor.title%>">
+                                                <input class="form-control" id="title" name="title" value="title">
                                             </div>
                                             <div class="form-group">
                                                 <label for="rate">Rate</label>
-                                                <input class="form-control" id="rate" name="rate" value="<%= tutor.rate%>">
+                                                <input class="form-control" id="rate" name="rate" value="rate">
                                             </div>
                                             <div class="form-group">
-                                                <label for="imageURL">Image URL</label>
-                                                <input class="form-control" id="imageURL" name="imageURL" value="<%= tutor.imageURL%>">
+                                                <label for="imageURL">Picture</label>
+                                                <input class="form-control" id="picture" name="picture" value="picture">
                                             </div>
                                             <div class="form-group">
                                                 <label for="description">Description</label>
-                                                <textarea class="form-control" name="description" id="description"><%= tutor.description%></textarea>
+                                                <textarea class="form-control" name="description" id="description">description</textarea>
                                             </div>
+                                       
                                             <button type="submit" class="btn btn-primary">Submit</button>
+                                            <a href="/:id" class="primary-btn2 mb-3 mb-sm-0">Delete Tutorial</a></i></button>
                                         </form>
                                         <br>
                                     </div>
