@@ -8,6 +8,7 @@ router.get("/register_account", accountController.registerAccount);
 router.post("/create_account", accountController.createAccount);
 router.post("/login", accountController.loginAccount);
 router.get("/myprofile", accountController.myAccount);
-
+router.get("/myprofile/update", accountController.updateAccount);
+router.get("/partials/about", accountController.about);
 module.exports = router;
     

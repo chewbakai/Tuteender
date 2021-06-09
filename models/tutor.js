@@ -1,6 +1,5 @@
 const {DataTypes} = require("sequelize");
 const db = require("../connection");
-// const picture = ("sequelize-file");
 
 const tutor = db.sequelize.define("tutors", {
       id: {
@@ -72,6 +71,4 @@ const tutor = db.sequelize.define("tutors", {
 //       return this.save();
 //   }
 // }
-// picture.addTo(tutors);
  exports.model = tutor;
-// exports.model = db.model('Tutors', tutorSchema);

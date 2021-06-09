@@ -19,7 +19,7 @@ var isValidEmail = (email) => {
 }
 
 exports.registerAccount = (req,res) => { res.render("create");}
-
+exports.about = (req,res) => { res.render('./partials/about');}
 exports.createAccount = async (req, res) => {
     var salt = bcrypt.genSaltSync(saltRounds);
     var hash = bcrypt.hashSync(req.body.password,salt);   
@@ -71,8 +71,8 @@ exports.loginAccount = async (req, res) => {
     }
 }
 exports.myAccount = async(req, res, next) => {
-	const id = 2
-     accounts.model.findAll({
+	const id = 2;
+     accounts.model.findAll({ 
          where: {
              id: id
          }
@@ -83,20 +83,14 @@ exports.myAccount = async(req, res, next) => {
     })
     .catch(err => console.log(err));
 };
-// exports.updateAccount = async (req, res) => {
-//     const id = req.params.id;
-//     accounts.model.findAll(id)
-//             .then((result)=>{
-//                 result.firstname = updatedName;
-//                 result.lastname = updatedLastname;
-//                 result.course = updatedcourse;
-//                 result.school = updatedschool;
-//                 return result.save()
-//             })
-//             .then((result)=>{
-//                     console.log("the data was Updated");
-//                 })
-//             .catch((err)=>{
-//                 console.log("Error : ",err)
-//             });
-// }
+exports.updateAccount = async (req, res) => {
+    let data = await accounts.model.update({
+            password: "P@$$w0rd"
+        }, {
+        where: {
+            id: req.body.id
+        }
+        }
+    )
+    res.send(data);
+}
