@@ -8,7 +8,3 @@ Steps for running on local computer
 2. upload the database to phpmyadmin, file exist under tuteender.sql
 3. `nodemon app`
 4. Then open `localhost:8080`
-
-Username: test<br>
-Password: testest123 
-or Create an account <br>
